@@ -1,0 +1,2054 @@
+/* HEADER STYLE */
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  padding-top: 65px;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.header-background {
+  width: 100%;
+  /* Adjust as per the actual width of the header */
+  height: 70px;
+  /* Adjust as per the actual height of the header */
+  background-color: lightgray;
+  /* Match the background color */
+  transition: all 0.3s;
+  /* Smooth transition for sticky effect */
+}
+
+.header {
+  width: 1100px;
+  /* Adjust as per the actual width of the header */
+  width: 100%;
+  height: 70px;
+  /* Adjust as per the actual height of the header */
+  background-color: lightgray;
+  /* Match the background color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px;
+  /* Add padding on the sides */
+  margin: auto;
+}
+
+.container {
+  max-width: 100%;
+  /* This prevents any container from being wider than the viewport */
+}
+
+.logo {
+  font-size: 24px;
+  /* Adjust the size as needed */
+  font-weight: bold;
+}
+
+.search-bar input {
+  width: 460px;
+  /* Adjust the width as needed */
+  padding: 10px;
+  margin: 0 150px;
+  border-radius: 1px;
+  border-color: black;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 15;
+}
+
+.user-info .user-icon,
+.user-info .language {
+  margin-left: 20px;
+  /* Space between user and language */
+}
+
+.user-info .language {
+  border-left: 1px solid black;
+  /* Separator line */
+  padding-left: 20px;
+}
+
+/* Remove default styles */
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  border: 1px solid black;
+  color: black;
+  
+}
+
+Add interactivity .search-bar input:focus {
+  border: 1px solid #ccc;
+}
+
+/* Style the cursor */
+.search-bar input {
+  caret-color: gray;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+
+.header-background,
+.navbar-background {
+  position: fixed;
+  top: 0;
+  /* Align at the top */
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  /* Ensure it stays above other content */
+}
+
+/* NAVIGATION BAR */
+.navbar-background {
+  top: 70px;
+  /* Position below the header */
+  width: 100%;
+  /* Adjust as per the actual width of the navigation bar */
+  height: 40px;
+  /* Adjust as per the actual height of the navigation bar */
+  background-color: #f1f1f1;
+  /* Match the background color */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  z-index: 5;
+  /* Ensure it stays above other content */
+}
+
+
+
+.navbar {
+  max-width: 1050px;
+  width: 100%;
+  /* Ensure navbar spans full width */
+  height: 40px;
+  /* Set a fixed height for your navbar */
+  background-color: #f1f1f1;
+  /* Background color */
+  display: flex;
+  /* Use flexbox to arrange children */
+  justify-content: center;
+  /* Center items horizontally */
+  align-items: center;
+  /* Center items vertically */
+  /* padding: 0 20px; */
+  /* Adjust padding as needed */
+  margin: auto;
+  /* Center the navbar */
+  text-align: center;
+  z-index: 5;
+  /* Ensure it stays above other content */
+}
+
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+  /* Position the dropdown relative to its parent */
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  left: 0;
+  /* Align to the left edge of the parent menu item */
+  top: 40px;
+  /* Adjust this value to match the height of your navbar */
+  min-width: 160px;
+  /* Adjust this value to match the width of the menu item if necessary */
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  /* Align text to the left */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.menu-item {
+  height: 40px;
+  max-width: 150px;
+  font-size: 10px;
+  /* Adjust the size as needed */
+  color: #000;
+  padding: 10px 12px;
+  /* Adjust the padding as needed */
+  cursor: pointer;
+  /* vertical-align: middle; */
+  justify-content: center;
+  /* overflow: hidden; */
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  align-items: center;
+}
+
+.menu-item a {
+  color: #000;
+}
+
+
+/* Align 'ALL CATEGORIES' text to the cente */
+.menu-item.dropdown {
+  align-items: center;
+  /* Center vertically */
+  justify-content: center;
+  /* Center horizontally */
+  /* margin-left: auto; Pushes the special item to the right */
+}
+
+.menu-item.special {
+  font-weight: bold;
+  background-color: red;
+  color: #fff;
+  height: inherit;
+  width: auto;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  /* Center vertically */
+  justify-content: center;
+  /* Center horizontally */
+  /* margin-left: auto;Pushes the special item to the right */
+  padding-top: 15px;
+
+}
+
+.menu-item.special:hover {
+  font-weight: bold;
+  background-color: #333;
+  color: #fff;
+
+}
+
+.menu-item:not(.special):hover {
+  background-color: #ddd;
+  /* Hover effect for non-special items */
+}
+
+/* Ensure that the dropdown arrow is aligned with the text */
+.menu-item::after {
+  content: "";
+  display: inline-block;
+  margin-left: 5px;
+}
+
+/* Reset list styles */
+.navbar {
+  list-style: none;
+}
+
+/* Inline-block for horizontal layout */
+.navbar .menu-item {
+  display: inline-block;
+}
+
+.login-dropdown {
+  display: none;
+  position: absolute;
+  top: 30px;
+  /* Position right below the user-info */
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.login-form {
+  margin: 0;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.login-form button:hover {
+  background-color: #333;
+}
+
+.social-login button {
+  display: flex;
+  /* Uses flexbox for alignment */
+  align-items: center;
+  /* Aligns items vertically */
+  justify-content: center;
+  /*Centers the content horizontally*/
+  width: 100%;
+  padding: 10px;
+  margin-right: 4%;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.social-login button:last-child {
+  margin-right: 0;
+}
+
+/* Styles for the User icon that triggers dropdown */
+.user-icon {
+  cursor: pointer;
+}
+
+/* Style for Forgot Password and Register Now links */
+.link-text {
+  display: block;
+  /* Makes the link fill the container */
+  text-align: center;
+  /* Centers the text */
+  text-decoration: none;
+  /* Removes the underline from the link */
+  margin: 5px 0;
+  /* Adds space above and below the link */
+  color: #333;
+  /* Sets the text color */
+}
+
+/* Style for User Image */
+.user-icon img {
+  border-radius: 50%;
+  /* Circular image */
+  object-fit: cover;
+  /* Ensures the image covers the area properly */
+}
+
+/* User Dropdown Styles */
+.user-dropdown {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  top: 30px;
+  /* Adjust as needed */
+  right: 0;
+  /* Align to the right of the user icon */
+  min-width: 160px;
+  /* Adjust as needed */
+}
+
+.user-dropdown a {
+  color: black;
+  padding: 10px 0;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.user-dropdown a:hover {
+  background-color: #ddd;
+}
+
+.user-dropdown a {
+  color: black;
+  padding: 10px 0;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.user-dropdown a:hover {
+  background-color: #ddd;
+}
+
+
+
+
+/* Breadcrumb styles */
+.breadcrumb-container {
+  margin-bottom: 30px;
+  background-color: #fff;
+  text-align: left;
+  margin-left: 140px;
+}
+
+.breadcrumb-container a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+/* Category title styles */
+.category-title {
+  background-color: #fff;
+  color: #333;
+  text-align: left;
+  margin-left: 150px;
+  padding: 8px 0;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.reg-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.reg-header a{
+ text-decoration: none;
+ color: white;
+}
+
+
+.reg-header div {
+  display: inline-flex;
+  /* Changed to flex to include the logo */
+  align-items: center;
+  /* Align the text with the logo */
+  margin-right: 10px;
+  padding: 10px 20px;
+  /* Increased padding for a larger button */
+  cursor: pointer;
+  background: #f2f2f2;
+  border: 1px solid #ddd;
+  font-size: larger;
+  /* Larger text size */
+  background-color: red;
+  color: white;
+}
+
+.reg-container {
+  max-width: 800px;
+  /* or whatever maximum width you prefer */
+  margin: 0 auto;
+}
+
+/* Input fields side by side */
+.reg-form-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  /* Space between form groups */
+}
+
+.reg-form-group div {
+  flex: 1;
+  /* Each child takes equal space */
+  margin-right: 10px;
+  /* Space between the inputs */
+}
+
+/* To make sure the last child in the flex container does not have a margin on the right */
+.reg-form-group div:last-child {
+  margin-right: 0;
+}
+
+/* Input fields */
+input[type="textt"],
+input[type="email"],
+input[type="tel"] {
+  width: 395px;
+  /* Will take the full width of the flex child */
+  padding: 10px;
+  /* border: 1px solid #ccc; */
+  border-radius: 4px;
+}
+
+
+
+@media (max-width: 600px) {
+
+  /* On smaller screens, inputs stack */
+  .reg-form-group {
+    flex-direction: column;
+  }
+
+  .reg-form-group div {
+    margin-right: 0;
+    margin-bottom: 10px;
+    /* Space between stacked inputs */
+  }
+
+  /* Remove the margin-bottom from the last input field */
+  .reg-form-group div:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Registration Buttons */
+.reg-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Style the OR separator */
+.reg-or-separator {
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+}
+
+.reg-or-separator:before,
+.reg-or-separator:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #ccc;
+}
+
+.reg-or-separator:before {
+  left: 0;
+}
+
+.reg-or-separator:after {
+  right: 0;
+}
+
+.reg-or-separator span {
+  background: #fff;
+  padding: 0 10px;
+}
+
+
+
+/* Style for the logo inside the button */
+.reg-logo {
+  width: 20px;
+  /* Set the size of your logo */
+  height: 20px;
+  /* Set the size of your logo */
+  margin-right: 8px;
+  /* Space between logo and text */
+}
+
+/* Profile Picture Upload */
+.profile-pic-container {
+  margin: 20px auto;
+  width: 100px;
+  height: 100px;
+  border: 1px dashed #ccc;
+  position: relative;
+  background: url('./Logo/ui.png') no-repeat center center / 100%;
+}
+
+.reg-form-action {
+  display: flex;
+  justify-content: center; /* This will center the button in the container */
+}
+
+/* Submit Button */
+.reg-form-action button {
+  width: 150px;
+  padding: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-top: 20px;
+  cursor: pointer;
+font-size: 20px;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .reg-container {
+    width: auto;
+    margin: 10px;
+  }
+
+  .reg-form-group {
+    flex-direction: column;
+  }
+
+  .reg-form-group input[type="text"],
+  .reg-form-group input[type="email"],
+  .reg-form-group input[type="tel"] {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .reg-form-group input[type="text"]:last-child,
+  .reg-form-group input[type="email"]:last-child,
+  .reg-form-group input[type="tel"]:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Additional styles */
+/* Section Titles */
+.section-title {
+  font-size: 20px;
+  margin: 20px 0;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+/* /* Ensure buttons and input fields have full width on smaller screens / */
+@media (max-width: 600px) {
+  .reg-btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .reg-form-group input[type="text"],
+  .reg-form-group input[type="email"],
+  .reg-form-group input[type="tel"] {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+/* General Styles */
+.content-container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* Welcome Section Styles */
+.welcome-section {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.welcome-section .user-name {
+  font-weight: normal;
+}
+
+
+.profile-picture {
+  padding: 20px 0;
+}
+
+.shop-name {
+  margin-bottom: 12px;
+}
+
+
+.profile-picture img {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  /* Adjust as needed */
+  height: 200px;
+  /* Adjust as needed */
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  /* Placeholder background color if no image is found */
+}
+
+.seller-username {
+  display: block;
+  font-size: 20px;
+  color: #333;
+  background-color: #fff;
+  padding: 5px 5px;
+  border-width: 1px;
+  border-color: #333;
+  border-style: solid;
+  border-radius: 25px;
+  width: 140px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.seller-social-icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.seller-social-icons i {
+  margin-left: 7px;
+  margin-right: 10px;
+  margin-top: 20px;
+  height: 20px;
+  /* Adjust the size as needed */
+  text-decoration: none;
+  /* Removes underline from links */
+}
+
+.seller-bio {
+  font-size: 22px;
+}
+
+
+
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  /* Hide overflow to keep everything neat */
+  margin-bottom: 20px;
+}
+
+/* Slides */
+.mySlides {
+  display: none;
+  position: relative;
+  /* Position relative to allow absolute positioning inside */
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  /* Change to white for better visibility */
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  z-index: 99;
+  /* Ensure arrows are above the images and dots */
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Position the "prev button" to the left */
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Dot indicators */
+.dot-container {
+  text-align: center;
+  position: absolute;
+  bottom: 8px;
+  /* Place the dots near the bottom of the image */
+  width: 100%;
+  z-index: 1;
+  /* Ensure dots are above the images */
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #ff0000;
+  /* Red for active dot */
+}
+
+
+
+.filter-bar-container {
+display: flex;
+  padding: 20px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.filter-bar {
+  width: 100%;
+  max-width: 1353px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.filter-label {
+  margin-right: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.filter-option {
+  margin-right: 10px;
+  padding: 10px 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Style for the dropdown arrow to match the rest of the filter options */
+.price-filter select {
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 50%;
+  font-size: 16px;
+}
+
+.price-dropdown {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.price-dropdown option {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.price-filter select:hover {
+  background-color: #f2f2f2;
+}
+
+#addProductBtn {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: auto; /* Aligns the button to the right */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .filter-bar-container {
+    padding: 10px;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+  }
+
+  .filter-option {
+    margin-bottom: 10px;
+  }
+
+  .price-filter select {
+    width: 100%;
+
+  }
+}
+
+
+
+/* Reviewed Products Section Styles */
+.reviewed-products-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #eaeaea;
+}
+
+.reviewed-products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.reviewed-products-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.products-count {
+  font-size: 18px;
+}
+
+.add-review-btn {
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-review-btn:hover {
+  background-color: #333;
+}
+
+/* Products Container Styles */
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 35px;
+}
+
+/* Add your product card styles here */
+
+
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  /* Adjust padding as necessary */
+  gap: 20px;
+  /* This will create space between the cards */
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  /* Stack children vertically */
+  justify-content: space-between;
+  /* Ensures the price is pushed to the bottom */
+  flex: 0 0 20%;
+  /* flex-grow: 0, flex-shrink: 0, flex-basis: 25% */
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  /* Include padding and border in the element's total width and height */
+  margin-bottom: 5px;
+  /* Space between rows */
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/* Additional class for cards in the scrollable container to add more gap */
+.scrollable-card-gap {
+  margin-right: 40px;
+  /* Increased spacing between these cards */
+}
+
+.related-products-title-container {
+  display: flex;
+  /* Use flex to center the content */
+  justify-content: center;
+  /* Center the content horizontally */
+  max-width: 1353px;
+  /* Set the maximum width */
+  margin-left: auto;
+  /* Auto margins for centering */
+  margin-right: auto;
+  padding: 10px 0;
+  /* Add padding at the top and bottom */
+  /* margin-bottom: 20px; Space between the title and the cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+}
+
+.related-products-title {
+  font-size: 24px;
+  /* Keep your font-size */
+  font-weight: bold;
+  /* Keep your font-weight */
+  /* You can add more styles if needed */
+}
+
+
+.scrollable-container {
+  display: flex;
+  overflow-x: auto;
+  max-width: 1353px;
+  margin: auto;
+  user-select: none;
+  /* Prevent text selection while dragging */
+  cursor: grab;
+  /* Change cursor to 'grab' */
+  -webkit-overflow-scrolling: touch;
+  /* Enables momentum-based scrolling for touch devices */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+.scrollable-container.grabbing {
+  cursor: grabbing;
+  /* Change cursor to 'grabbing' when the mouse is down */
+}
+
+.scrollable-container::-webkit-scrollbar {
+  height: 12px;
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background-color: #c0c0c0;
+  border-radius: 20px;
+  border: 3px solid #f0f0f0;
+}
+
+
+.image-container {
+  width: 100%;
+  height: 250px;
+  /* Adjust height as needed */
+  position: relative;
+  overflow: hidden;
+  /* To handle images larger than the container */
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* This will ensure the image covers the whole area */
+}
+
+.category {
+  font-size: 14px;
+  color: #fff;
+  background-color: red;
+  padding: 5px 5px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+}
+
+.text-content {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* This will push the price to the bottom */
+  flex-grow: 1;
+  /* Grow to take up available space */
+}
+
+.category,
+.title,
+.brand {
+  margin: 5px 0;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+  /* This will push the prices to the left and the discount to the right */
+  align-items: center;
+}
+
+.price-details {
+  display: flex;
+  align-items: center;
+  /* This ensures that the original price and sale price are aligned on the same line */
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 5px;
+  /* Space between the original price and the sale price */
+}
+
+.sale-price {
+  color: #333;
+  font-weight: bold;
+}
+
+.discount {
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  padding: 5px 5px;
+  border-width: 1px;
+  border-color: #333;
+  border-style: solid;
+  /* No need for margin-left here as it will now be aligned to the right */
+}
+
+
+.product-gallery {
+  display: flex;
+  width: 800px;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+  overflow: hidden;
+  position: relative;
+}
+
+.thumbnail-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.thumbnail {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  transition: opacity 0.3s;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+  opacity: 0.6;
+}
+
+.main-image-container {
+  position: relative;
+  width: calc(100% - 100px);
+  max-width: 600px;
+  max-height: 600px;
+  /* Adjust the width calculation if thumbnail width + padding changes */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#main-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 4;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+/* Main product section styling */
+.product-section {
+  display: flex;
+  max-width: 1353px;
+  /* This should match the width of your layout */
+  margin: auto;
+  border: 1px solid #ccc;
+  /* Optional, for visual structure */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Optional, for visual depth */
+  margin-bottom: 30px;
+}
+
+/* Image gallery container styling */
+.product-section__gallery {
+  flex: 1;
+  /* Takes up 1 part of the available space */
+  display: flex;
+  /* Use flexbox for internal layout */
+  flex-wrap: wrap;
+  /* Allow items to wrap */
+  justify-content: flex-start;
+  /* Align images to the start of the container */
+  align-items: flex-start;
+  /* Align images to the top of the container */
+  margin-right: 10px;
+  /* Add some spacing between gallery and details */
+}
+
+/* Ensure thumbnails have a fixed size and do not shrink */
+.product-section__gallery .thumbnail {
+  flex: 0 0 auto;
+  /* Do not grow, do not shrink, and base size on content */
+  width: 100px;
+  /* Fixed width for thumbnails */
+  height: 100px;
+  /* Fixed height for thumbnails */
+  margin: 5px;
+  /* Space between thumbnails */
+  object-fit: cover;
+  /* Ensure the images cover the thumbnail area */
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* This ensures spacing between sections */
+  height: 100%;
+  /* Full height of the container */
+  padding: 20px;
+  width: 553px;
+}
+
+.product -header {
+  margin-bottom: 20px;
+  /* Spacing between the header and body sections */
+}
+
+.product-title {
+  font-size: 2em;
+  margin: 10px 0;
+  /* Spacing above and below the title */
+}
+
+.add-to-favourites {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  margin: 10px 0;
+  /* Spacing above and below the favourites line */
+}
+
+.favourite-icon {
+  color: red;
+  /* Placeholder for an actual icon */
+  margin-right: 5px;
+}
+
+.product-body {
+  flex-grow: 1;
+  /* Allows this section to grow and push actions to the bottom /
+display: flex;
+flex-direction: column;
+justify-content: center; / Vertically center the content */
+}
+
+.product-description {
+  margin-bottom: 20px;
+  /* Spacing below the description */
+}
+
+.product-pricing {
+  display: flex;
+  align-items: baseline;
+  /* Align the text baselines of the child elements */
+  gap: 10px;
+  /* Space between the price and the discount */
+  margin-bottom: 30px;
+}
+
+.price-old {
+  text-decoration: line-through;
+  color: #777;
+  font-size: 1rem;
+  /* Adjust size as needed */
+}
+
+.price-new {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.2rem;
+  /* Adjust size as needed */
+}
+
+.discount {
+  color: red;
+  font-weight: bold;
+  font-size: 1rem;
+  /* Adjust size as needed */
+  background-color: #fff;
+  /* Background to match your design */
+  padding: 0.2rem 0.4rem;
+  /* Padding around the discount text */
+  border: 1px solid red;
+  /* Border to match the text color */
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  /* Optional shadow for depth */
+}
+
+.product-actions {
+  display: flex;
+  gap: 10px;
+  /* Spacing between buttons */
+}
+
+.action-btn {
+  flex: 1;
+  /* Each button takes up an equal amount of space */
+  padding: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.chat {
+  background-color: #333;
+  /* Dark grey background for chat button */
+}
+
+.offer {
+  background-color: #e53935;
+  /* Red background for offer button */
+}
+
+.chat:hover,
+.offer:hover {
+  background-color: #555;
+  /* Lighten the button color on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .product-details {
+    padding: 10px;
+  }
+
+  .product-header,
+  .product-body,
+  .product-actions {
+    margin-bottom: 10px;
+    /* Reduce spacing on smaller screens */
+  }
+}
+
+
+.seller-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1353px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  /* For visibility */
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.seller-section__profile {
+  display: flex;
+  align-items: center;
+}
+
+.seller-section__avatar {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+}
+
+.seller-section__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.seller-section__name {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.seller-section__status {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.seller-section__actions {
+  display: flex;
+  gap: 10px;
+}
+
+.seller-section__button {
+  padding: 10px 15px;
+  background-color: #e53935;
+  /* Example color */
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.seller-section__button:hover {
+  background-color: #ff6f60;
+  /* Lighter shade for hover state */
+}
+
+.seller-section__stats {
+  display: flex;
+  align-items: center;
+}
+
+.seller-section__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 30px;
+  /* Space between stats */
+}
+
+.seller-section__stat-value {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.seller-section__stat-label {
+  font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+  .seller-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .seller-section__profile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .seller-section__stats {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+
+.product-info-container {
+  max-width: 1353px;
+  /* Match the max-width of the product section above */
+  width: 100%;
+  /* Ensure it spans the full available width */
+  margin: auto;
+  /* Center the container */
+  padding: 20px;
+  /* Consistent padding with other elements */
+  box-sizing: border-box;
+  /* Include padding and border in the element's width */
+  border: 1px solid #cccccc;
+  /* Optional border for clarity */
+  overflow: hidden;
+  /* Prevents content from spilling out */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+.product-info-title {
+  font-size: 1.5em;
+  margin: 0 0 20px 0;
+  /* Provide sufficient spacing below the title */
+}
+
+.product-info-text {
+  margin: 0;
+  /* Reset any default margins */
+  font-size: 1em;
+  /* If text should wrap and not overflow horizontally, remove any width restrictions on this element */
+}
+
+#custom-pre {
+  font-family: Arial, sans-serif;
+  /* Change the font family */
+  font-size: 16px;
+  /* Change the font size */
+  /* Add any other styles you want */
+}
+
+/* Ensure that the container adjusts height based on content */
+.product-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Correct any specific width settings that might cause the container to be too small */
+@media (max-width: 768px) {
+  .product-info-container {
+    max-width: 100%;
+    /* Full width on smaller screens */
+    padding: 10px;
+    /* Adjust padding for smaller screens */
+  }
+}
+
+
+.discount-banner {
+  position: relative;
+  max-width: 1353px;
+  /* Adjusted to your banner width */
+  height: 231px;
+  /* Adjusted to your banner height */
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  /* If you want rounded corners */
+  background-image: url(./images/slideshow/1\ copy.png);
+  /* Your banner background image */
+  background-size: cover;
+  /* Cover the entire area of the banner */
+  background-position: center;
+  /* Center the background image */
+  margin-bottom: 30px;
+}
+
+.banner-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* Align content to the right */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* Align content to the right */
+  padding-right: 20px;
+  /* Add some padding on the right */
+}
+
+.discount-text {
+  font-size: 36px;
+  /* Large font size for the discount text */
+  color: black;
+  /* Text color */
+  font-weight: bold;
+  margin-left: 20px;
+  /* Space between button and text */
+}
+
+.details-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  /* Button background */
+  color: white;
+  /* Button text color */
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  /* Uppercase text */
+  margin-left: 30px;
+}
+
+.details-button:hover {
+  background-color: #e8e8e8;
+  /* Slightly darker background on hover */
+}
+
+
+.addproduct-container {
+  max-width: 600px;
+  margin: auto;
+  min-height: 50vh;
+}
+
+.addproduct-title{
+  font-size: 30px;
+  font-weight: bold ;
+  margin-bottom: 30px;
+}
+
+/* Style for form rows */
+.form-row {
+  display: flex;
+  flex-direction: row;
+  /* Change to row */
+  margin-bottom: 15px;
+}
+
+/* Style for labels */
+.form-label {
+  text-align: left;
+  /* Align the labels to the left */
+  margin-right: 10px;
+  /* Add some space between label and input */
+}
+
+/* Style for input fields */
+.form-input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.choose-container p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#summary {
+  height: 100px;
+}
+
+.select-row {
+  display: flex;
+  margin-bottom: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style for labels */
+.select-label {
+  flex: 1;
+  text-align: right;
+  padding-right: 10px;
+  line-height: 2;
+  /* Adjust as needed for vertical alignment */
+  font-size: medium;
+}
+
+/* Style for input fields */
+.select-input {
+  flex: 2;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.summary-form {
+  display: flex;
+  margin-bottom: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+/* Pagination styles */
+.pagination-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.pagination-arrow,
+.pagination-number {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid transparent;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination-number:hover,
+.pagination-arrow:hover {
+  color: #fff;
+  background-color: #333;
+  border: 1px solid #333;
+}
+
+.pagination-number.active {
+  color: #fff;
+  background-color: red;
+  border: 1px solid #ff3e00;
+}
+
+.pagination-ellipsis {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+
+.chat-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  margin: 10px;
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.chatbox {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* Chatbox */
+.chatbox {
+  position: fixed;
+  bottom: 80px; /* Height of the chat icon plus some extra space */
+  right: 20px; /* Or any desired value */
+  width: 300px; /* Adjust width as needed */
+height: auto; /* Adjust height as needed /
+z-index: 1000; /* Ensure it's above other content */
+display: none; /* Start with chatbox not displayed */
+transition: bottom 0.3s; /* Smooth transition for the chatbox movement */
+}
+
+/* Chat Icon */
+.chat-icon {
+position: fixed;
+bottom: 20px; /* Or any desired value */
+right: 20px; /* To match the chatbox's horizontal position */
+z-index: 1001; /* Above the chatbox so it can be clicked */
+cursor: pointer;
+/*Add other styles as needed */
+}
+
+/* Style to show chatbox when chat icon is clicked */
+.chat-icon.active + .chatbox {
+display: block; /* Show the chatbox */
+}
+
+/* Use JavaScript to toggle chatbox visibility */
+.chat-icon {
+/* ... existing styles ... */
+}
+
+.chatbox {
+/* ... existing styles ... */
+transition: bottom 0.3s; /* Smooth transition for the chatbox movement */
+}
+
+.chat-area {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.chat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.message {
+  position: relative;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 8px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.sender {
+  background-color: red;
+  color: #fff;
+  float: right;
+}
+
+.receiver {
+  background-color: #e5e5ea;
+  color: #333;
+  float: left;
+}
+
+.tail {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  margin-top: -10px;
+}
+
+.sender .tail {
+  border-width: 10px 0 0 10px;
+  border-color: red;
+  right: -10px;
+  top: 50%;
+}
+
+.receiver .tail {
+  border-width: 10px 10px 0 0;
+  border-color: transparent #e5e5ea;
+  left: -10px;
+  top: 50%;
+}
+
+.input-box {
+  border-top: 1px solid #ddd;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #ccc;
+  /* Set the background color for the input box here */
+}
+
+.input-box input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: #fff;
+  /* Set the background color for the input field here */
+  color: #333;
+  /* Set text color for the input field */
+}
+
+.input-box input::placeholder {
+  color: #999;
+  /* Set placeholder text color */
+}
+
+.input-box button {
+  background-color: red;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+
+/* FOOTER STYLE */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+.content {
+  flex: 1;
+}
+
+.footer {
+  /* position: fixed; */
+  left: 0;
+  bottom: 0;
+  margin-top: 43px;
+  width: 100%;
+  background-color: #f2f2f2;
+  /* Your desired background color */
+  z-index: 1;
+  /* Ensures the footer is above other content */
+  /* height: 300px; */
+}
+
+/* Style for the footer's inner content */
+.footer-inner {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding: 0 50px;
+  /* Adjust this value to fit your content */
+  min-height: 150px;
+  /* Or whatever height you prefer for your footer */
+}
+
+/* Ensure the very bottom part of the footer, likely with copyright and payment logos, also sticks to the bottom */
+.footer-bottom {
+  /* position: fixed; */
+  display: flex;
+  left: 0;
+  /* bottom: 0; */
+  width: 100%;
+  background-color: white;
+  /* Or any other color */
+  color: black;
+  /* Text color */
+  z-index: 1;
+  padding: 10px 20px;
+  text-align: center;
+  /* This centers the text horizontally */
+  box-sizing: border-box;
+}
+
+/* The following rule will push the .footer-bottom up to sit on top of .footer */
+.footer-bottom {
+  bottom: 0px;
+  /* Adjust this value to the height of your .footer */
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+.footer-section h3 {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul,
+.footer-section form {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li a,
+.footer-section form input,
+.footer-section form button {
+  color: #333;
+  text-decoration: none;
+  line-height: 1.6;
+  border: none;
+  background: none;
+  padding: 8px;
+  margin: 2px 0;
+  vertical-align: top;
+}
+
+.footer-section form button {
+  color: black;
+  text-transform: uppercase;
+}
+
+.footer-section form input {
+  color: #333;
+}
+
+
+.footer-bottom .copy {
+  text-align: left;
+}
+
+.footer-bottom .payment-logos img {
+  height: 20px;
+  /* Adjust as necessary for your logos */
+}
+
+.social-icons {
+  display: flex;
+}
+
+.social-icons i {
+  margin-left: 7px;
+  margin-right: 10px;
+  margin-top: 20px;
+  height: 20px;
+  /* Adjust the size as needed */
+  text-decoration: none;
+  /* Removes underline from links */
+}
+
+.subscribe-container {
+  background-color: #f2f2f2;
+  /* Background color */
+  padding: 20px;
+  /* Padding around the content */
+  width: 300px;
+  /* Width of the subscribe container */
+  box-sizing: border-box;
+  /* Ensures padding doesn't add to the width */
+  border-radius: 5px;
+  /* Rounded corners of the container */
+}
+
+.subscribe-container h2 {
+  text-align: left;
+  font-size: 1.2em;
+  /* Size of the title */
+  margin-bottom: 5px;
+  /* Space between title and paragraph */
+}
+
+.subscribe-container p {
+  font-size: 0.9em;
+  /* Size of the paragraph */
+  margin-bottom: 20px;
+  /* Space between paragraph and form */
+}
+
+.subscribe-form {
+  display: flex;
+}
+
+.subscribe-form input[type="email"] {
+  flex-grow: 1;
+  /* Allows input to fill the space */
+  padding: 10px;
+  border: none;
+  /* No border for input */
+  margin-right: -1px;
+  /* Overlap border with button */
+}
+
+.subscribe-form button {
+  background-color: red;
+  /* Background color for the button */
+  color: #fff;
+  /* Text color for the button */
+  border: none;
+  /* No border for button */
+  padding: 10px 20px;
+  cursor: pointer;
+  /* Changes cursor to pointer */
+  border-radius: 0 5px 5px 0;
+  /* Rounded corners on the right side */
+}
+
+/* Additional styles for focus and hover states */
+.subscribe-form input[type="email"]:focus,
+.subscribe-form button:hover {
+  outline: none;
+  /* Removes outline on focus */
+  background-color: #333;
+  /* Background color on hover for button */
+}
